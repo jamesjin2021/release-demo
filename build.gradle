@@ -1,0 +1,73 @@
+
+
+plugins {
+      // Apply the java-library plugin for API and implementation separation.
+      id 'java-library'
+      id 'maven-publish'
+      id 'net.researchgate.release' version '3.0.2'
+      id "io.freefair.lombok" version "6.6-rc1"
+}
+
+group = 'org.apromore'
+version = '0.0.1-SNAPSHOT'
+description = 'release-demo'
+sourceCompatibility = '11'
+
+repositories {
+      // Use Maven Central for resolving dependencies.
+      mavenCentral()
+
+
+
+}
+
+dependencies {
+      api 'com.healthmarketscience.sqlbuilder:sqlbuilder:3.0.2'
+      implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.6.6'
+}
+
+tasks.named('jar') {
+      manifest {
+            attributes('Implementation-Title': project.name,
+                    'Implementation-Version': project.version)
+      }
+}
+
+publishing {
+      publications {
+            myLibrary(MavenPublication) {
+                  from components.java
+            }
+      }
+
+      repositories {
+            maven {
+                  name = 'myRepo'
+                  // change URLs to point to your repos, e.g. http://my.org/repo
+                  url = 'http://localhost:8081/repository/myRepo/'
+                  allowInsecureProtocol = 'http'
+                  credentials {
+                        username = 'admin'
+                        password = 'JZM38a!@'
+                  }
+            }
+      }
+}
+
+release {
+      failOnCommitNeeded = false
+      failOnUnversionedFiles = false
+
+      scmAdapters = [
+              net.researchgate.release.GitAdapter
+      ]
+
+      git {
+            requireBranch.set('master')
+            pushToRemote.set('origin')
+            pushToBranchPrefix.set('')
+            commitVersionFileOnly.set(false)
+            signTag.set(false)
+      }
+}
+
