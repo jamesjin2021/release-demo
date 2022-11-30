@@ -69,6 +69,7 @@ release {
       }
 }
 
+tasks.publishMyLibraryPublicationToMyRepoRepository.dependsOn build
 tasks.afterReleaseBuild.dependsOn publishMyLibraryPublicationToMyRepoRepository
 
 
