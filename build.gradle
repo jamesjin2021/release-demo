@@ -36,6 +36,7 @@ publishing {
       }
 
       repositories {
+
             maven {
                   name = 'myRepo'
                   // change URLs to point to your repos, e.g. http://my.org/repo
@@ -44,6 +45,19 @@ publishing {
                   credentials {
                         username = 'admin'
                         password = 'JZM38a!@'
+                  }
+            }
+
+            maven {
+                  name = 'apromoreRepo'
+                  credentials {
+                        username = 'james'
+                        password = 'JZM36a!@'
+                  }
+                  url = uri('https://nexus.apromore.org/repository/apromore-proprietary-deps/')
+                  metadataSources {
+                        mavenPom()
+                        artifact()
                   }
             }
       }
@@ -69,7 +83,5 @@ release {
       }
 }
 
-tasks.publishMyLibraryPublicationToMyRepoRepository.dependsOn build
-tasks.afterReleaseBuild.dependsOn publishMyLibraryPublicationToMyRepoRepository
 
 
