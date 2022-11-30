@@ -8,6 +8,9 @@ plugins {
       id "io.freefair.lombok" version "6.6-rc1"
 }
 
+
+group = 'org.apromore'
+description = 'release-demo'
 sourceCompatibility = '11'
 
 repositories {
@@ -43,23 +46,26 @@ publishing {
                   url = 'http://localhost:8081/repository/myRepo/'
                   allowInsecureProtocol = 'http'
                   credentials {
-                        username = 'admin'
-                        password = 'JZM38a!@'
+                        username 'admin'
+                        password 'JZM38a!@'
                   }
             }
 
             maven {
-                  name = 'apromoreRepo'
-                  credentials {
-                        username = 'james'
-                        password = 'JZM36a!@'
+                  name = 'testRepo'
+                  credentials(PasswordCredentials) {
+                        username 'james'
+                        password 'JZM36a!@'
                   }
-                  url = uri('https://nexus.apromore.org/repository/apromore-proprietary-deps/')
-                  metadataSources {
-                        mavenPom()
-                        artifact()
-                  }
+//                  allowInsecureProtocol = 'http'
+                  url = 'https://nexus.apromore.org/repository/apromore-proprietary-deps/'
+//                  metadataSources {
+//                        mavenPom()
+//                        artifact()
+//                  }
             }
+
+
       }
 }
 
@@ -83,5 +89,7 @@ release {
       }
 }
 
-
+//hooks provided: beforeReleaseBuild which runs before build and
+// afterReleaseBuild which runs afterwards
+beforeReleaseBuild.dependsOn clean
 
