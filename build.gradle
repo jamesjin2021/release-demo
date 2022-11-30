@@ -55,8 +55,8 @@ publishing {
 }
 
 release {
-      failOnCommitNeeded = false
-      failOnUnversionedFiles = false
+
+      preCommitText = "AP-8323 POC release demo"
 
       scmAdapters = [
               net.researchgate.release.GitAdapter
