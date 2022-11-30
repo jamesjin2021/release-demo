@@ -8,9 +8,6 @@ plugins {
       id "io.freefair.lombok" version "6.6-rc1"
 }
 
-group = 'org.apromore'
-version = '0.0.1-SNAPSHOT'
-description = 'release-demo'
 sourceCompatibility = '11'
 
 repositories {
