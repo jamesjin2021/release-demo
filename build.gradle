@@ -69,6 +69,6 @@ release {
       }
 }
 
-tasks.afterReleaseBuild.dependsOn clean, build, publishMyLibraryPublicationToMyRepoRepository
+tasks.afterReleaseBuild.dependsOn build, publishMyLibraryPublicationToMyRepoRepository
 
 
