@@ -91,5 +91,7 @@ release {
 
 //hooks provided: beforeReleaseBuild which runs before build and
 // afterReleaseBuild which runs afterwards
-beforeReleaseBuild.dependsOn clean
+//publishMyLibraryPublicationToTestRepoRepository.dependsOn clean
+//afterReleaseBuild.dependsOn publishMyLibraryPublicationToTestRepoRepository
+
 
