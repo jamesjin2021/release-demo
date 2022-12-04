@@ -52,17 +52,16 @@ publishing {
             }
 
             maven {
-                  name = 'testRepo'
+                  name = 'apromoreRepo'
                   credentials(PasswordCredentials) {
                         username 'james'
                         password 'JZM36a!@'
                   }
-//                  allowInsecureProtocol = 'http'
                   url = 'https://nexus.apromore.org/repository/apromore-proprietary-deps/'
-//                  metadataSources {
+                  metadataSources {
 //                        mavenPom()
-//                        artifact()
-//                  }
+                        artifact()
+                  }
             }
 
 
@@ -91,7 +90,7 @@ release {
 
 //hooks provided: beforeReleaseBuild which runs before build and
 // afterReleaseBuild which runs afterwards
-//publishMyLibraryPublicationToTestRepoRepository.dependsOn clean
-//afterReleaseBuild.dependsOn publishMyLibraryPublicationToTestRepoRepository
+publishMyLibraryPublicationToApromoreRepoRepository.dependsOn clean
+afterReleaseBuild.dependsOn publishMyLibraryPublicationToApromoreRepoRepository
 
 
