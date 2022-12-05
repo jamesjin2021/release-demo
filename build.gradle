@@ -57,14 +57,10 @@ publishing {
                         username 'james'
                         password 'JZM36a!@'
                   }
-                  url = 'https://nexus.apromore.org/repository/apromore-proprietary-deps/'
-                  metadataSources {
-//                        mavenPom()
-                        artifact()
-                  }
+                  def releasesRepoUrl = 'https://nexus.apromore.org/repository/apromore-proprietary-deps/'
+                  def snapshotsRepoUrl = 'https://nexus.apromore.org/repository/apromore-proprietary-snapshot-deps/'
+                  url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             }
-
-
       }
 }
 
