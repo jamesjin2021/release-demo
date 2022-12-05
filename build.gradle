@@ -72,7 +72,7 @@ release {
 
       failOnCommitNeeded = false
       failOnUnversionedFiles = false
-
+      failOnSnapshotDependencies = true
       preCommitText = "AP-8323 POC release demo"
 
       scmAdapters = [
