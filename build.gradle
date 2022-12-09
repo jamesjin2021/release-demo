@@ -78,7 +78,6 @@ release {
       ]
 
       git {
-            requireBranch.set('')
             pushToRemote.set('origin')
             pushToBranchPrefix.set('')
             commitVersionFileOnly.set(false)
