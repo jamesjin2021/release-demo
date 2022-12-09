@@ -66,9 +66,9 @@ publishing {
 
 release {
 
-      failOnCommitNeeded = true
+      failOnCommitNeeded = false
       failOnUnversionedFiles = false
-      failOnSnapshotDependencies = true
+      failOnSnapshotDependencies = false
       pushReleaseVersionBranch = 'master'
 
       preCommitText = "AP-8323 POC release demo"
