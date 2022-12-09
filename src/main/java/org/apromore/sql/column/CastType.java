@@ -19,7 +19,7 @@
 package org.apromore.sql.column;
 
 public enum CastType {
-    TANGO("TANGO"),
+    APPLE("APPLE"),
     BOOLEAN("boolean"),
     TINYINT("tinyInt"),
     SMALLINT("smallInt"),
