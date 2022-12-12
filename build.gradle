@@ -40,16 +40,16 @@ publishing {
 
       repositories {
 
-            maven {
-                  name = 'myRepo'
-                  // change URLs to point to your repos, e.g. http://my.org/repo
-                  url = 'http://localhost:8081/repository/myRepo/'
-                  allowInsecureProtocol = 'http'
-                  credentials {
-                        username 'admin'
-                        password 'JZM38a!@'
-                  }
-            }
+//            maven {
+//                  name = 'myRepo'
+//                  // change URLs to point to your repos, e.g. http://my.org/repo
+//                  url = 'http://localhost:8081/repository/myRepo/'
+//                  allowInsecureProtocol = 'http'
+//                  credentials {
+//                        username 'admin'
+//                        password 'JZM38a!@'
+//                  }
+//            }
 
             maven {
                   name = 'apromoreRepo'
@@ -70,8 +70,6 @@ release {
       failOnUnversionedFiles = false
       failOnSnapshotDependencies = true
       pushReleaseVersionBranch = 'master'
-
-      preCommitText = "AP-8323 POC release demo"
 
       scmAdapters = [
               net.researchgate.release.GitAdapter
